@@ -4,8 +4,8 @@ MAINTAINER grong@skygurad.com
 
 # apt
 COPY sources.list /etc/apt
-RUN apt-get update && apt-get install -y sudo procps net-tools less vim curl ttf-mscorefonts-installer \
-    libxtst-dev libxrender-dev
+RUN apt-get update && apt-get install -y sudo procps net-tools less vim curl locales postfix \
+    ttf-mscorefonts-installer libxtst-dev libxrender-dev
 
 # set timezone
 RUN echo "Asia/Shanghai" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata

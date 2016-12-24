@@ -3,7 +3,7 @@ MAINTAINER grong@skygurad.com
 
 # apt
 COPY sources.list /etc/apt
-RUN apt-get update && apt-get install -y sudo procps net-tools less vim curl \
+RUN apt-get update && apt-get install -y sudo procps net-tools less vim curl locales \
     perl apache2.2-common apache2-mpm-worker apache2 libapache2-mod-wsgi
 
 # set timezone
