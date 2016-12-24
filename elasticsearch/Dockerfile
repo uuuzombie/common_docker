@@ -1,4 +1,4 @@
-FROM debian:7.10
+FROM daocloud.io/library
 MAINTAINER grong@skygurad.com
 
 # apt

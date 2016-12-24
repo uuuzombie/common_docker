@@ -1,5 +1,4 @@
-FROM debian:7.10
-#FROM 172.22.111.199:80/sps_demo/debian:7.10
+FROM daocloud.io/library/tomcat:latest
 MAINTAINER grong@skygurad.com
 
 # apt
