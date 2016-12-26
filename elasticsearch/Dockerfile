@@ -3,8 +3,9 @@ MAINTAINER grong@skygurad.com
 
 # apt
 COPY sources.list /etc/apt
-RUN apt-get update && apt-get install -y sudo procps net-tools less vim curl ttf-mscorefonts-installer \
-    libxtst-dev libxrender-dev
+RUN apt-get update && apt-get install -y sudo procps net-tools less vim \
+    curl locales
+
 
 # set timezone
 RUN echo "Asia/Shanghai" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
@@ -14,6 +15,7 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
+
 
 
 # install elasticsearch
