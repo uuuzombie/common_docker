@@ -1,29 +1,25 @@
-FROM daocloud.io/library
+FROM daocloud.io/library/elasticsearch:latest
 MAINTAINER grong@skygurad.com
 
 # apt
 COPY sources.list /etc/apt
-RUN apt-get update && apt-get install -y sudo procps net-tools less vim \
-    curl locales
-
+RUN apt-get update && apt-get install -y \
+    sudo procps net-tools netcat telnet less vim curl locales perl lsof
 
 # set timezone
 RUN echo "Asia/Shanghai" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
 # Set the locale
-RUN locale-gen en_US.UTF-8
+#RUN locale-gen en_US.UTF-8
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    echo 'LANG="en_US.UTF-8"\nLANGUAGE="en_US.en"'>/etc/default/locale && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-
-
-# install elasticsearch
-
-RUN mkdir -p /opt/program
-COPY deb_files/ /opt/program
-RUN dpkg -i /opt/program/elasticsearch-5.0.0.deb && \
-	rm -rf /opt/program
 
 
 # config
