@@ -1,5 +1,5 @@
 FROM diy/debian:7.10
-MAINTAINER grong@skygurad.com
+MAINTAINER grong@sky.com
 
 # apt
 RUN apt-get update && apt-get install -y \

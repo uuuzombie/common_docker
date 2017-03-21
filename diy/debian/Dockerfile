@@ -1,5 +1,5 @@
 FROM debian:7.10
-MAINTAINER grong@skygurad.com
+MAINTAINER grong@sky.com
 
 # apt
 COPY sources.list /etc/apt

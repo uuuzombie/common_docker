@@ -1,5 +1,5 @@
 FROM daocloud.io/library/memcached:latest
-MAINTAINER grong@skygurad.com
+MAINTAINER grong@sky.com
 
 # apt
 COPY sources.list /etc/apt

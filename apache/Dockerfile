@@ -1,5 +1,5 @@
 FROM daocloud.io/library/apache2:latest
-MAINTAINER grong@skygurad.com
+MAINTAINER grong@sky.com
 
 # apt
 COPY sources.list /etc/apt
